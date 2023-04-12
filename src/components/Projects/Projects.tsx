@@ -93,9 +93,9 @@ const Projects = () => {
             <p>Here you can find some of the projects I've wordked on:</p>
 
             <div className="projects__container">
-                {projects.map((project, i) => {
+                {projects.map((project, index) => {
                     return (
-                        <article className="project__card">
+                        <article className="project__card" key={index}>
                             <div className="project__image">
                                 <h3>{project.title}</h3>
 

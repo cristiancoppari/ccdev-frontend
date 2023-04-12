@@ -167,7 +167,7 @@ const Experience = () => {
             <div className="experience__items">
                 {experience_items.map((item: ExperienceItem, index: number) => {
                     return (
-                        <article className="experience__item">
+                        <article className="experience__item" key={index}>
                             <div className="experience__item--left">
                                 <h3>{item.title}</h3>
 

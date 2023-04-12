@@ -1,8 +1,8 @@
 // Reset
 // https://github.com/simbo/css-reset-and-normalize
-@forward "../../../frontend/node_modules/css-reset-and-normalize/scss/reset-and-normalize.scss";
-@forward "../../../frontend/node_modules/css-reset-and-normalize/scss/button-reset.scss";
-@forward "../../../frontend/node_modules/css-reset-and-normalize/scss/link-reset.scss";
+@forward "../../node_modules/css-reset-and-normalize/scss/reset-and-normalize.scss";
+@forward "../../node_modules/css-reset-and-normalize/scss/button-reset.scss";
+@forward "../../node_modules/css-reset-and-normalize/scss/link-reset.scss";
 
 @forward "./partials/helpers";
 @forward "./partials/typography";
