@@ -1,0 +1,111 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.hero {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    .wave {
+        font-size: 3rem;
+
+        animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s; /* Change to speed up or slow down */
+        animation-iteration-count: infinite; /* Never stop waving :) */
+
+        transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+
+        display: inline-block;
+    }
+
+    .first-title {
+        // @include mixins.font-size(20);
+
+        margin-bottom: 1rem;
+
+        @include mixins.font-size(24);
+
+        @include mixins.screen("md") {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+
+        font-weight: 600;
+
+        @include mixins.screen("md") {
+            margin-bottom: 2rem;
+        }
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+
+        @include mixins.screen("md") {
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    .text {
+        margin-bottom: 1rem;
+
+        @include mixins.screen("md") {
+            margin-bottom: 3rem;
+        }
+
+        br {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: underline;
+
+            font-weight: 500;
+        }
+    }
+
+    .text-container {
+        margin-bottom: clamp(1rem, 2vw, 2rem);
+
+        .position {
+            display: inline-block;
+
+            font-weight: 600;
+        }
+    }
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(14deg);
+    } /* The following five values can be played with to make the waving more or less extreme */
+    20% {
+        transform: rotate(-8deg);
+    }
+    30% {
+        transform: rotate(14deg);
+    }
+    40% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    } /* Reset for the last half to pause */
+    100% {
+        transform: rotate(0deg);
+    }
+}

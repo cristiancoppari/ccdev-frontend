@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.about-me {
+    // padding: 4rem 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2rem;
+
+    @include mixins.screen("md") {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+
+        flex-direction: row;
+
+        gap: 4rem;
+    }
+
+    &__content {
+        flex: 1 1 60%;
+
+        display: flex;
+
+        justify-content: center;
+        // align-items: center;
+
+        flex-direction: column;
+    }
+
+    &__image-section {
+        position: relative;
+
+        flex: 1 1 40%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        img {
+            opacity: 0;
+
+            transform: translate(0, 100px);
+
+            object-fit: contain;
+
+            position: relative !important;
+        }
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+
+        font-weight: 600;
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+}

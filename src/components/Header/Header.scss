@@ -1,0 +1,97 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    background-color: variables.$white;
+
+    box-shadow: 0px 10px 15px -3px rgba(variables.$black, 0.1);
+
+    z-index: 999;
+}
+
+.nav {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 2rem;
+
+    .word {
+        margin-right: 0.2rem;
+
+        @include mixins.font-size(24);
+    }
+
+    .letters {
+        display: inline-block;
+    }
+}
+
+.nav-list-wrapper {
+    display: none;
+
+    &.--active {
+        display: flex;
+
+        justify-content: flex-end;
+
+        position: fixed;
+
+        background-color: rgba(variables.$black, 0.5);
+
+        height: calc(100% - variables.$nav-height-mobile);
+        width: 100%;
+
+        top: variables.$nav-height-mobile;
+        right: 0;
+
+        backdrop-filter: blur(0.2rem);
+
+        z-index: 10;
+
+        .nav-list {
+            height: 100%;
+            width: 20rem;
+
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+
+            background-color: variables.$white;
+        }
+    }
+
+    @include mixins.screen("md") {
+        display: flex;
+
+        gap: 1rem;
+    }
+}
+
+.nav-list {
+    display: flex;
+
+    gap: 1rem;
+}
+
+.nav-link {
+    @include mixins.font-size(18);
+}
+
+.dot {
+    opacity: 0;
+    @include mixins.font-size(42, 400, 0);
+}

@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.btn {
+    display: inline-block;
+
+    max-width: max-content;
+
+    background-color: variables.$black;
+
+    border: 2px solid variables.$black;
+    border-radius: 0.5rem;
+
+    padding: 1rem 2rem;
+
+    font-weight: 600;
+    text-transform: uppercase;
+    color: variables.$white;
+
+    transition: all 0.2s ease-in-out;
+
+    @include mixins.screen("lg") {
+        &:hover {
+            background-color: variables.$white;
+            color: variables.$black;
+        }
+    }
+}

@@ -1,0 +1,156 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.experience {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    // @include mixins.screen("md") {
+    //     width: 90%;
+    // }
+
+    // @include mixins.screen("md") {
+    //     width: 80%;
+    // }
+
+    // @include mixins.screen("md") {
+    //     width: 70%;
+    // }
+
+    h2 {
+        font-weight: 600;
+
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        @include mixins.font-size(18, 600);
+
+        margin-bottom: 1rem;
+    }
+
+    .date {
+        font-style: italic;
+        font-size: 0.875rem;
+        font-weight: 400;
+
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        margin-bottom: 0.5rem;
+    }
+
+    ul {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 1rem;
+
+        margin-top: 1rem;
+
+        li {
+            display: flex;
+
+            align-items: center;
+            line-height: 1.2;
+
+            gap: 0.5rem;
+
+            margin-bottom: 0.5rem;
+
+            .icon {
+                color: variables.$gray;
+            }
+        }
+    }
+
+    &__item {
+        margin-bottom: 3rem;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 1rem;
+
+        border-bottom: 1px #e9e9e9 solid;
+        padding: 3rem;
+
+        transition: border-bottom 0.2s ease-in-out;
+
+        &:hover {
+            border-bottom: 1px variables.$black solid;
+        }
+
+        @include mixins.screen("md") {
+            flex-direction: row;
+
+            gap: 4rem;
+        }
+
+        &--left {
+            flex: 1 0 50%;
+        }
+
+        &--right {
+            flex: 1 0 20%;
+        }
+    }
+
+    .icon {
+        display: block;
+
+        &-js {
+            color: #f7df1e;
+        }
+
+        &-ts {
+            color: #3178c6;
+        }
+
+        &-react {
+            color: #61dafb;
+        }
+
+        &-node {
+            color: #3c873a;
+        }
+
+        &-ga {
+            color: #fbbc05;
+        }
+
+        &-ads {
+            color: #4285f4;
+        }
+
+        &-gsc {
+            color: #34a853;
+        }
+
+        &-django {
+            color: #092e20;
+        }
+
+        &-sass {
+            color: #cc6699;
+        }
+
+        &-next {
+            color: #000;
+        }
+
+        &-bootstrap {
+            color: #563d7c;
+        }
+
+        &-gulp {
+            color: #cf4647;
+        }
+
+        &-wordpress {
+            color: #21759b;
+        }
+    }
+}

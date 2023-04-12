@@ -1,0 +1,19 @@
+@use "../partials/mixins";
+
+h1 {
+    // @include mixins.font-size(32, 34);
+    font-size: clamp(2.3rem, 5vw, 5rem);
+    line-height: 1.2;
+}
+
+h2 {
+    // @include mixins.font-size(28, 30);
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.2;
+}
+
+p {
+    // @include mixins.font-size(16, 20);
+    font-size: clamp(1rem, 2vw, 1rem);
+    line-height: 1.8;
+}

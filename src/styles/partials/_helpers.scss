@@ -1,0 +1,73 @@
+@use "./variables";
+@use "./mixins";
+
+// Wrapper
+.wrapper {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    max-width: variables.$wrapper-max-width;
+
+    padding: 0 1.5rem;
+    margin: 0 auto;
+
+    @include mixins.screen("md") {
+        padding: 0 2rem;
+    }
+
+    @include mixins.screen("md") {
+        padding: 0 2.5rem;
+    }
+
+    @include mixins.screen("lg") {
+        padding: 0 3rem;
+    }
+
+    @include mixins.screen("xl") {
+        padding: 0 3.5rem;
+    }
+}
+
+// Screen height
+.screen-height {
+    // height: calc(100vh - variables.$nav-height-mobile);
+    height: 100vh;
+}
+
+.underline-yellow {
+    @include mixins.text-decoration(variables.$mpb-yellow);
+}
+
+.underline-blue {
+    @include mixins.text-decoration(variables.$mpb-blue);
+}
+
+.underline-orange {
+    @include mixins.text-decoration(variables.$mpb-orange);
+}
+
+.underline-mustard {
+    @include mixins.text-decoration(variables.$mpb-mustard);
+}
+
+.underline-gray-light {
+    @include mixins.text-decoration(variables.$mpb-gray-light);
+}
+
+.underline-gray-dark {
+    @include mixins.text-decoration(variables.$mpb-gray-dark);
+}
+
+.max-content {
+    max-width: max-content;
+}
+
+.underline-center {
+    &::after {
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+}

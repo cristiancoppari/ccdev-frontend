@@ -1,0 +1,109 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.projects {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    & > p {
+        margin-bottom: 2rem;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @include mixins.screen("md") {
+            gap: 4rem;
+        }
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+
+        font-weight: 600;
+    }
+
+    h3 {
+        @include mixins.font-size(18, 600);
+
+        margin-bottom: 1rem;
+    }
+}
+
+.project {
+    &__card {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 2rem;
+
+        @include mixins.screen("md") {
+            flex-direction: row;
+
+            &:last-of-type {
+                flex-direction: row-reverse;
+
+                & > h3 {
+                    text-align: right;
+                }
+            }
+        }
+
+        .image__container {
+            position: relative;
+
+            img {
+                position: relative !important;
+            }
+        }
+    }
+
+    &__image {
+        @include mixins.screen("md") {
+            flex: 1 1 60%;
+        }
+    }
+
+    &__content {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        @include mixins.screen("md") {
+            flex: 1 1 40%;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .technologies {
+            .technology {
+                display: flex;
+
+                padding: 0 1rem;
+                margin-bottom: 0.275rem;
+
+                svg {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+
+        &-wrapper {
+            color: variables.$white;
+
+            height: max-content;
+            width: 100%;
+
+            padding: 2rem;
+
+            background-color: rgba(variables.$mpb-gray-dark, 1);
+        }
+    }
+}
