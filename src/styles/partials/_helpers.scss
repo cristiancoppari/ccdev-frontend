@@ -60,6 +60,14 @@
     @include mixins.text-decoration(variables.$mpb-gray-dark);
 }
 
+.underline-red {
+    @include mixins.text-decoration(variables.$red);
+}
+
+.underline-blue {
+    @include mixins.text-decoration(variables.$blue);
+}
+
 .max-content {
     max-width: max-content;
 }
@@ -69,5 +77,13 @@
         left: 50%;
 
         transform: translateX(-50%);
+    }
+}
+
+.section-margin-top {
+    margin-top: 4rem;
+
+    @include mixins.screen("md") {
+        margin-top: 8rem;
     }
 }

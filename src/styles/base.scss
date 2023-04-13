@@ -1,3 +1,4 @@
+@use "./partials/mixins";
 // Reset
 // https://github.com/simbo/css-reset-and-normalize
 @forward "../../node_modules/css-reset-and-normalize/scss/reset-and-normalize.scss";
@@ -14,7 +15,12 @@
 @forward "../components/AboutMe/AboutMe.scss";
 @forward "../components/Experience/Experience.scss";
 @forward "../components/Projects/Projects.scss";
+@forward "../components/Form/Form.scss";
 
 section {
-    padding: 0 6rem !important;
+    padding: 0 4rem !important;
+
+    @include mixins.screen("md") {
+        padding: 0 6rem !important;
+    }
 }

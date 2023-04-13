@@ -1,14 +1,16 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import AboutMe from "@/components/AboutMe/AboutMe";
 import Experience from "@/components/Experience/Experience";
 import Projects from "@/components/Projects/Projects";
+import Form from "@/components/Form/Form";
 
-const inter = Inter({ subsets: ["latin"] });
+import type { HomeProps } from "@/types/types";
 
-export default function Home() {
+export default function Home(props: any) {
+    const { API_ENDPOINT } = props;
+
     return (
         <>
             <Head>
@@ -24,7 +26,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className={inter.className}>
+            <main>
                 <Header />
 
                 <Hero />
@@ -34,7 +36,19 @@ export default function Home() {
                 <Experience />
 
                 <Projects />
+
+                <Form endpoint={API_ENDPOINT} />
             </main>
         </>
     );
+}
+
+export async function getStaticProps() {
+    const API_ENDPOINT = process.env.API_ENDPOINT;
+
+    return {
+        props: {
+            API_ENDPOINT,
+        },
+    };
 }

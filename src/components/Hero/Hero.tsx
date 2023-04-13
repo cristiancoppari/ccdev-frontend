@@ -8,17 +8,12 @@ const Hero = () => {
             </p>
 
             <h1>
-                <span className="underline-yellow underline-center max-content">
-                    Cristian
-                </span>{" "}
+                <span className="underline-center max-content">Cristian</span>{" "}
                 <span>Coppari.</span>
             </h1>
             <h2>
                 I build things for the{" "}
-                <span className="underline-gray-light underline-center">
-                    web
-                </span>
-                .
+                <span className="underline-red underline-center">web</span>.
             </h2>
 
             <div className="text-container">
@@ -27,7 +22,7 @@ const Hero = () => {
                     and web applications.
                 </p>
 
-                <p className="text">
+                {/* <p className="text">
                     {" "}
                     Currently, I'm working at{" "}
                     <a
@@ -42,7 +37,7 @@ const Hero = () => {
                         Front End Developer
                     </span>
                     .
-                </p>
+                </p> */}
             </div>
 
             <Button label="Contact me" />

@@ -1,0 +1,68 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.form-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    margin-bottom: 8rem;
+
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+
+    :where(h2, p) {
+        text-align: center;
+    }
+
+    h2 {
+        font-weight: 600;
+
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 2rem;
+    }
+
+    form {
+        .form__group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 0.5rem;
+        }
+
+        :where(input, textarea, select) {
+            width: 100%;
+
+            border: 1px variables.$black solid;
+
+            padding: 0.5rem;
+
+            color: variables.$black;
+        }
+
+        input,
+        select {
+            &.error {
+                border: 1px variables.$red solid;
+
+                margin-bottom: 0.5rem;
+
+                & ~ small {
+                    color: variables.$red;
+                }
+            }
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}

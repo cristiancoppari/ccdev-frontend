@@ -87,7 +87,7 @@ const projects: Project[] = [
 
 const Projects = () => {
     return (
-        <section className="projects wrapper">
+        <section className="projects wrapper section-margin-top">
             <h2 className="underline-gray-dark max-content">Projects</h2>
 
             <p>Here you can find some of the projects I've wordked on:</p>
@@ -116,7 +116,10 @@ const Projects = () => {
                                     <ul className="technologies">
                                         {project.technologies.map((tech, i) => {
                                             return (
-                                                <li className="technology">
+                                                <li
+                                                    className="technology"
+                                                    key={i}
+                                                >
                                                     {tech.icon}
 
                                                     <span>{tech.name}</span>

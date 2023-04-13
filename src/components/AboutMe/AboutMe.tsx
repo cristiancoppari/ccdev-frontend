@@ -52,9 +52,9 @@ const AboutMe = () => {
     }, []);
 
     return (
-        <section className="about-me wrapper">
+        <section className="about-me wrapper section-margin-top">
             <div className="about-me__content">
-                <h2 className="underline-yellow max-content">About me</h2>
+                <h2 className="underline-red max-content">About me</h2>
 
                 <p>
                     Hello! I'm Cristian Coppari, a passionate Full-Stack Web
@@ -66,22 +66,18 @@ const AboutMe = () => {
                 </p>
 
                 <p>
-                    Skilled in JavaScript, TypeScript, React, and Redux, I have
-                    a knack for developing responsive, accessible, and
-                    performance-optimized web applications. My dedication to
-                    staying updated with the latest technologies and best
-                    practices in the field ensures that my clients always
-                    receive cutting-edge solutions.
+                    Skilled in <strong>JavaScript</strong>,{" "}
+                    <strong>TypeScript</strong>, <strong>React</strong>, and{" "}
+                    <strong>Redux</strong>, I have a knack for developing
+                    responsive, accessible, and performance-optimized web
+                    applications.
                 </p>
 
                 <p>
-                    In addition to my technical skills, I'm well-versed in
-                    Search Engine Optimization (SEO), which allows me to create
-                    websites that not only look and function beautifully but
-                    also rank well on search engines. This combination of
-                    design, development, and optimization expertise allows me to
-                    deliver exceptional digital experiences that exceed client
-                    expectations.
+                    In addition to my technical skills, I'm well-versed in{" "}
+                    <strong>Search Engine Optimization (SEO)</strong>, which
+                    allows me to create websites that not only look and function
+                    beautifully but also rank well on search engines.
                 </p>
 
                 <p>When I'm not coding, I'm driking coffee.</p>

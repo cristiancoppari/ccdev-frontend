@@ -161,7 +161,7 @@ const experience_items: ExperienceItem[] = [
 
 const Experience = () => {
     return (
-        <section className="experience wrapper">
+        <section className="experience wrapper section-margin-top">
             <h2 className="underline-blue max-content">Experience</h2>
 
             <div className="experience__items">

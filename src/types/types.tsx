@@ -44,3 +44,27 @@ export type Project = {
         label: string;
     };
 };
+
+export type FormData = {
+    name: string;
+    contact_reason: string;
+    email: string;
+    message: string;
+};
+
+export type HomeProps = {
+    API_ENDPOINT: string;
+};
+
+export type RequestData = {
+    name: string;
+    contact_reason: string;
+    email: string;
+    message: string;
+};
+
+export type AxiosConfig = {
+    url: string;
+    method: string;
+    data: RequestData;
+};
