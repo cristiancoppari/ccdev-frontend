@@ -2,46 +2,35 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import Button from "../Buttons/Button";
-import cookieCutter from "cookie-cutter";
+import Cookies from "js-cookie";
+import useSWR from "swr";
 
 import type { FormData, RequestData, AxiosConfig } from "../../types/types";
 
-let didInit = false;
-
 const Form = ({ endpoint }: { endpoint: string }) => {
-    const [token, setToken] = useState<string | null>(null);
-
-    useEffect(() => {
-        if (!didInit) {
-            console.log("effect runs");
-            didInit = true;
-            const fetchToken = async () => {
-                const response: AxiosResponse = await axios.get(
-                    // "https://ccdev-backend.herokuapp.com/api/csrf/"
-                    "http://localhost:3001/api/csrf/"
-                );
-
-                console.log(response.data.csrfToken);
-
-                return response;
-            };
-
-            fetchToken()
-                .then((response) => {
-                    setToken(() => response.data.csrfToken);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
-    }, []);
+    const { data, error } = useSWR("http://localhost:3001/api/csrf", fetcher);
 
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm<FormData>();
+
+    async function fetcher(url: string) {
+        try {
+            const response: AxiosResponse = await axios.get(url, {
+                withCredentials: true,
+            });
+            return response.data;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    const csrfToken = data?.csrfToken;
+
+    console.log(csrfToken);
 
     // Handler for the form submit event
     const submitHandler: SubmitHandler<FormData> = async (data: FormData) => {
@@ -53,6 +42,11 @@ const Form = ({ endpoint }: { endpoint: string }) => {
                 contact_reason: data.contact_reason,
                 email: data.email,
                 message: data.message,
+            },
+            withCredentials: true,
+            headers: {
+                "Content-Type": "application/json",
+                "x-csrf-token": csrfToken || "no token no mail",
             },
         };
 

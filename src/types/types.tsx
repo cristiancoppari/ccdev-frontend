@@ -50,6 +50,7 @@ export type FormData = {
     contact_reason: string;
     email: string;
     message: string;
+    csrfToken: string;
 };
 
 export type HomeProps = {
