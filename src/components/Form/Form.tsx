@@ -5,10 +5,12 @@ import Button from "../Buttons/Button";
 import Cookies from "js-cookie";
 import useSWR from "swr";
 
-import type { FormData, RequestData, AxiosConfig } from "../../types/types";
+import type { FormData, RequestData, FormProps } from "../../types/types";
 
-const Form = ({ endpoint }: { endpoint: string }) => {
-    const { data, error } = useSWR(endpoint, fetcher);
+const Form = ({ endpoints }: FormProps) => {
+    const [getTokenEndpoint, sendMailEndpoint] = endpoints;
+
+    const { data, error } = useSWR(getTokenEndpoint, fetcher);
 
     const {
         register,
@@ -35,7 +37,7 @@ const Form = ({ endpoint }: { endpoint: string }) => {
     // Handler for the form submit event
     const submitHandler: SubmitHandler<FormData> = async (data: FormData) => {
         const axiosConfig: AxiosRequestConfig<RequestData> = {
-            url: endpoint,
+            url: sendMailEndpoint,
             method: "POST",
             data: {
                 name: data.name,

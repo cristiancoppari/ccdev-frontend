@@ -9,7 +9,7 @@ import Form from "@/components/Form/Form";
 import type { HomeProps } from "@/types/types";
 
 export default function Home(props: any) {
-    const { API_ENDPOINT } = props;
+    const { TOKEN_ENDPOINT, MAIL_ENDPOINT } = props;
 
     return (
         <>
@@ -37,16 +37,17 @@ export default function Home(props: any) {
 
                 <Projects />
 
-                <Form endpoint={API_ENDPOINT} />
+                <Form endpoints={[TOKEN_ENDPOINT, MAIL_ENDPOINT]} />
             </main>
         </>
     );
 }
 
 export async function getStaticProps() {
-    const API_ENDPOINT: string = process.env.API_ENDPOINT || "";
+    const TOKEN_ENDPOINT: string = process.env.TOKEN_ENDPOINT || "";
+    const MAIL_ENDPOINT: string = process.env.MAIL_ENDPOINT || "";
 
-    if (!API_ENDPOINT) {
+    if (!TOKEN_ENDPOINT || !MAIL_ENDPOINT) {
         return {
             notFound: true,
         };
@@ -54,7 +55,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-            API_ENDPOINT,
+            TOKEN_ENDPOINT,
+            MAIL_ENDPOINT,
         },
     };
 }

@@ -69,3 +69,7 @@ export type AxiosConfig = {
     method: string;
     data: RequestData;
 };
+
+export type FormProps = {
+    endpoints: string[];
+};
