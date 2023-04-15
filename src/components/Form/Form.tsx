@@ -8,7 +8,7 @@ import useSWR from "swr";
 import type { FormData, RequestData, AxiosConfig } from "../../types/types";
 
 const Form = ({ endpoint }: { endpoint: string }) => {
-    const { data, error } = useSWR("http://localhost:3001/api/csrf", fetcher);
+    const { data, error } = useSWR(endpoint, fetcher);
 
     const {
         register,
