@@ -44,7 +44,13 @@ export default function Home(props: any) {
 }
 
 export async function getStaticProps() {
-    const API_ENDPOINT = process.env.API_ENDPOINT;
+    const API_ENDPOINT: string = process.env.API_ENDPOINT || "";
+
+    if (!API_ENDPOINT) {
+        return {
+            notFound: true,
+        };
+    }
 
     return {
         props: {
