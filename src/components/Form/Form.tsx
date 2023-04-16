@@ -3,14 +3,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import Button from "../Buttons/Button";
 import Cookies from "js-cookie";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 
 import type { FormData, RequestData, FormProps } from "../../types/types";
 
 const Form = ({ endpoints }: FormProps) => {
-    const [getTokenEndpoint, sendMailEndpoint] = endpoints;
+    const [TOKEN_ENDPOINT, MAIL_ENDPOINT] = endpoints;
 
-    const { data, error } = useSWR(getTokenEndpoint, fetcher);
+    const { data } = useSWRImmutable(TOKEN_ENDPOINT, fetcher);
 
     const {
         register,
@@ -32,12 +32,10 @@ const Form = ({ endpoints }: FormProps) => {
 
     const csrfToken = data?.csrfToken;
 
-    console.log(csrfToken);
-
     // Handler for the form submit event
     const submitHandler: SubmitHandler<FormData> = async (data: FormData) => {
         const axiosConfig: AxiosRequestConfig<RequestData> = {
-            url: sendMailEndpoint,
+            url: MAIL_ENDPOINT,
             method: "POST",
             data: {
                 name: data.name,

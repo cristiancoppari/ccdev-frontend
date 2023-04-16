@@ -6,8 +6,6 @@ import Experience from "@/components/Experience/Experience";
 import Projects from "@/components/Projects/Projects";
 import Form from "@/components/Form/Form";
 
-import type { HomeProps } from "@/types/types";
-
 export default function Home(props: any) {
     const { TOKEN_ENDPOINT, MAIL_ENDPOINT } = props;
 
@@ -46,6 +44,10 @@ export default function Home(props: any) {
 export async function getStaticProps() {
     const TOKEN_ENDPOINT: string = process.env.TOKEN_ENDPOINT || "";
     const MAIL_ENDPOINT: string = process.env.MAIL_ENDPOINT || "";
+
+    // DEBUG
+    // console.log("TOKEN_ENDPOINT", TOKEN_ENDPOINT);
+    // console.log("MAIL_ENDPOINT", MAIL_ENDPOINT);
 
     if (!TOKEN_ENDPOINT || !MAIL_ENDPOINT) {
         return {
