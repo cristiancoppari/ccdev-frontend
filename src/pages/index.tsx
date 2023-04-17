@@ -5,12 +5,14 @@ import AboutMe from "@/components/AboutMe/AboutMe";
 import Experience from "@/components/Experience/Experience";
 import Projects from "@/components/Projects/Projects";
 import Form from "@/components/Form/Form";
+import { Toaster } from "sonner";
 
 export default function Home(props: any) {
     const { TOKEN_ENDPOINT, MAIL_ENDPOINT } = props;
 
     return (
         <>
+            <Toaster position="bottom-center" />
             <Head>
                 <title>Cristian Coppari - Portfolio</title>
                 <meta
