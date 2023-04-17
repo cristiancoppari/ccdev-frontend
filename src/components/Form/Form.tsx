@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import Button from "../Buttons/Button";
 import Cookies from "js-cookie";
+import { toast } from "sonner";
 import useSWRImmutable from "swr/immutable";
 
 import type { FormData, RequestData, FormProps } from "../../types/types";
@@ -50,7 +51,11 @@ const Form = ({ endpoints }: FormProps) => {
             },
         };
 
-        axios(axiosConfig);
+        toast.promise(axios(axiosConfig), {
+            loading: "Sending email...",
+            success: "Message sent successfully!",
+            error: "Something went wrong. Please try again later.",
+        });
     };
 
     const nameValidationRules = {
